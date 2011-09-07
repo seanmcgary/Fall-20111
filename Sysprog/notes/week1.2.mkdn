@@ -25,3 +25,156 @@ enum tag {
 } var1, var2, ...;
 ```
 
+Pointers
+---
+
+* Contain a reference to an element of some base type
+* Is itself a base type
+    * Can declare arrays of pointers and pointers to pointers
+* Declare with unary prefix "*" on variable name in declaration
+
+```
+type *var1, *var2, var3,...;
+```
+
+Arrays
+---
+* Homogeneous collection of elements of some basic type
+* Declare by adding postfix dimension specifier
+* Can be multi-dimensional
+* Stored [row][col]
+    * Row-major order
+
+```
+type name [ dimension ];
+type name [d1][d2] ...;
+```
+
+Structures
+---
+
+* Heterogeneous collections of elements
+* Declare by listing the members in desired storage order
+* Similar to classes
+    * no member functions
+    * all properties default to public
+* Members must be the compiler knows the size of
+    * pre-declared "objects"
+    * arrays, ints, etc
+    * pointers (knows the size of pointers)
+
+```
+struct tag {
+    member_declarations
+} var1, var2, ...;
+```
+
+Unions
+---
+
+* Structures whose members occupy the same storage space
+* Declaration order of memebers is irrelevent
+* Size of a union data member, is the size of the largest member
+* Useful wehn you have a variable that has different kinds of information at different times
+    * can be an int, then a float, then a double, etc
+
+```
+union tag {
+    member_declarations
+} var1, var2, ...;
+```
+    
+
+Control Structures
+---
+
+
+### Unconditional Transfer
+
+* Label is an identifier followed by ":"
+* Usable anywhere within a function
+* Rarely needed
+
+```
+goto label;
+```
+
+### Alter Execution of loop body
+
+* Skips rest of body, but stays in loop
+* Usable with any type of loop
+
+```
+continue
+```
+
+### Immediate exit from control structure
+
+* Usable in a loop or switch statement
+* Transfers to first statement after the body
+
+```
+break;
+```
+
+Decision constructs
+---
+
+###If statement
+```
+if( conditional ){
+    then-clause
+}
+```
+
+###Switch statement
+```
+switch( expression ){
+    case c1: ...
+    case c2: ...
+    ...
+    default
+};
+```
+
+###If-else statement
+```
+if( conditional){
+    then-clause
+} else {
+    else-clause
+}
+```
+
+Looping Constructs
+---
+
+###Pre-test loops
+* for loop
+* while loop
+
+```
+for(init; test; inc){
+    body
+}
+
+
+init
+while(test) {
+    body
+    inc
+}
+```
+
+###Post-test loop
+
+```
+init
+do {
+    body 
+    inc
+} 
+while(test);
+```
+
+
