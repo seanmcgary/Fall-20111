@@ -1,0 +1,27 @@
+Week 1, Class2 
+===
+
+Numeric Types in C
+---
+* char: 8-bit integer
+* int: "natural sized" integer (specific to the architecture)
+* short int: atleast 16-bit integer
+* long int: atleast 32-bit integer
+    * In architectures today, long int and int are most likely the same
+* long long int: atleast 32-bit integer
+* float: single-precision floating point
+* double: douple-precision floating point
+* long double: extended-precision floating point
+
+Enumerated Types
+---
+
+* Basically integers with names
+* Declare by listing all "values" in order
+
+```
+enum tag {
+    v1, v2, ...
+} var1, var2, ...;
+```
+
