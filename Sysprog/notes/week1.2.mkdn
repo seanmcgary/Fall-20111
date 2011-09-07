@@ -192,7 +192,59 @@ Operators
         <td>left-to-right</td>
     </tr>
     <tr>
-        <td>++ -- + - ! ~ (type) * & sizeof</td>
+        <td><pre>++ -- + - ! ~ (type) * & sizeof</pre></td>
         <td>right-to-left</td>
+    </tr>
+    <tr>
+        <td><pre>* / %</pre></td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td><pre>+ -</pre></td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td><pre><< >></pre></td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td><pre>< <= > >=</pre></td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td><pre>!= ==</pre></td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td><pre>&</pre></td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td><pre>^</pre></td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td><pre>|</pre></td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td><pre>&&</pre></td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td><pre>||</pre></td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td><pre>?:</pre></td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td><pre>+= -= *= /= %= &= ^= |= <<= >>= =</pre></td>
+        <td>right-to-left</td>
+    </tr>
+    <tr>
+        <td><pre>,</pre></td>
+        <td>left-to-right</td>
     </tr>
 </table>
