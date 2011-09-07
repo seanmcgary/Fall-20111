@@ -177,4 +177,22 @@ do {
 while(test);
 ```
 
+Operators
+---
+* All C operators exist in C++
+* Many arent used the same way
 
+<table>
+    <tr>
+        <th>Precedence</th>
+        <th>Associativity</th>
+    </tr>
+    <tr>
+        <td>() [] . -></td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td>++ -- + - ! ~ (type) * & sizeof</td>
+        <td>right-to-left</td>
+    </tr>
+</table>
