@@ -188,7 +188,7 @@ Operators
         <th>Associativity</th>
     </tr>
     <tr>
-        <td>```() [] . ->```</td>
+        <td><pre>() [] . -></pre></td>
         <td>left-to-right</td>
     </tr>
     <tr>
