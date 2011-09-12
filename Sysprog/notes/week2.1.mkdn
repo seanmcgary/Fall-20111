@@ -27,6 +27,7 @@ Dynamic Storage Allocation
 
 ```
 MyType *ptr;
+
 ptr = new MyType;
 ```
 
@@ -38,10 +39,24 @@ ptr = new MyType;
 
 ```
 MyType *ptr;
+
 ptr = (Type *) malloc(sizeof(MyType));
 ```
 
 - Allocates memory
 - Assigns pointer to variable
 
+- When done, we must deallocate space
+    - C++ : ```delete ptr;```
+    - C : ```free(ptr);```
+
+- Can allocate arrays
+    - C++ ```
+        ptr = new Type[10];
+        delete [] ptr;
+        ```
+    - C ```
+        ptr = (Type *) malloc(10 * sizeof(Type));
+        free(ptr); //simpler!
+        ```
 
