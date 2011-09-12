@@ -1,0 +1,47 @@
+Week 2, Class 1
+===
+
+Environment Variables
+---
+
+```
+char *getenv(const char *name);
+```
+
+- Searches for entry beginning with name (e.g. "USER");
+- Returns pointer to it, or a null pointer
+
+```
+int putenv(char *string);
+```
+
+- Updates/replaces the environment vector with a new entry
+    - Updates if exists
+    - Creates if it doesnt exist
+- May not be in all C library implementations
+
+Dynamic Storage Allocation
+---
+
+###In C++
+
+```
+MyType *ptr;
+ptr = new MyType;
+```
+
+- Allocates memory
+- Invokes constructor for Type to initialize memory
+- Assigns address to allocated memory to variable
+
+###In C
+
+```
+MyType *ptr;
+ptr = (Type *) malloc(sizeof(MyType));
+```
+
+- Allocates memory
+- Assigns pointer to variable
+
+

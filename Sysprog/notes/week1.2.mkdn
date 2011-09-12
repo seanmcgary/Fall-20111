@@ -1,4 +1,4 @@
-Week 1, Class2 
+Week 1, Class 2 
 ===
 
 Numeric Types in C
@@ -248,3 +248,46 @@ Operators
         <td>left-to-right</td>
     </tr>
 </table>
+
+Pointers
+---
+
+* Where the real work is done
+* A pointer is a reference to something in memory
+    * Data, function, etc
+* Contents of a pointer variable is an address
+* Declaration, initialization, and use:
+
+```
+int x;
+int *ptr;
+
+// assign the address of x to ptr
+ptr = &x;
+
+// dereference ptr and assign it tha value 42
+*ptr = 42
+```
+
+* NUll pointer: reference to location 0
+    * Compiler ensures that this will never be a valid data address
+
+Pointer Arithmetic
+---
+
+* Allowed in C
+* Legal forms
+    * pointer +/- integer
+    * pointer - pointer
+* Scaled arithmetic
+    * Increment is multiplied by the size of what the pointer points to
+    * Incrementing a pointer to a "thing" makes it point to the next "thing" in memory
+* Can also compare pointers to same base type
+    * Can use all relationals: ```< <= == != >= >```
+
+Pointers vs. Subscripts
+---
+
+* Array subscripting is really a pointer operation
+    * x[5] is equivelent to *(x + 5)
+
