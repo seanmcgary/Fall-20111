@@ -53,10 +53,35 @@ ptr = (Type *) malloc(sizeof(MyType));
 - Can allocate arrays
     - C++ ```
         ptr = new Type[10];
+
         delete [] ptr;
         ```
     - C ```
         ptr = (Type *) malloc(10 * sizeof(Type));
+
         free(ptr); //simpler!
         ```
+Prototypes
+---
 
+```
+void *malloc(size_t bytes);
+void *calloc(size_t num, size_t, bytes); // will clear out memory when allocating
+void *realloc(void *ptr, size_t bytes);
+void free(void *ptr);
+```
+
+Rules
+---
+
+- Can only free pointers that were allocated with malloc (et. al.)
+    - Cannot free non-dynamically-allocated memory!
+    - Cannot free parts of dynamically allocated memory
+- When reallocating, old pointer is no longer usable
+    - Can attempt to grow space
+        - If it can, it will return the same pointer
+        - If it cant, it will clear out the old space, and allocate memory in a new location
+    - Allocated space may have moved!
+    - Must use new pointer
+- Once memory has been freed, not safe to access it any longer
+    - May be reused when more memory is allocated
