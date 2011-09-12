@@ -53,12 +53,10 @@ ptr = (Type *) malloc(sizeof(MyType));
 - Can allocate arrays
     - C++ ```
         ptr = new Type[10];
-
         delete [] ptr;
         ```
     - C ```
         ptr = (Type *) malloc(10 * sizeof(Type));
-
         free(ptr); //simpler!
         ```
 Prototypes
