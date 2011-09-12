@@ -59,6 +59,7 @@ ptr = (Type *) malloc(sizeof(MyType));
         ptr = (Type *) malloc(10 * sizeof(Type));
         free(ptr); //simpler!
         ```
+
 Prototypes
 ---
 
