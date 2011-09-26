@@ -84,3 +84,161 @@ Rules
     - Must use new pointer
 - Once memory has been freed, not safe to access it any longer
     - May be reused when more memory is allocated
+
+The C Pre-Processor (CPP)
+===
+
+- Filter, run before the compiler sees the code
+    - Reads source code as input (from stdin or a specified file)
+    - Applies filtering steps as requested
+    - Writes resulting code(to stdout or a specified file)
+- Can be run as a standalone filter on non-C code
+    - Example: to preprocess assembly language source files
+
+CPP Directives
+---
+
+- Lines beginning with # characters
+    - Early C: must be first character
+    - ANSI C: can have leading whitespace
+    - Can be followed by whitespace
+
+- Types of directives
+    - File inclusion
+    - Macro definition
+    - Conditional compilation
+
+File Inclusion
+---
+
+- CPP "splices in" the files contents at this point
+- Two forms:
+    - <pre>#include "path"</pre>
+        - Searches working directory, then system directories
+    - <pre>#include <path></pre>
+        - Only searches system directories
+
+- Can extend list of system directories with -I
+    - Compiler (or cpp) -I dirname option
+    - Prepends dirname to list of system directories
+
+Common Header Files
+---
+
+- <stdlib.h>
+    - General purpose std C library prototypes
+- <unistd.h>
+    - System call prototypes, standard symbolic constants
+- <sys/types.h>
+    - Standard system type definitions
+- <stdint.h>
+    - Standard-width integer types
+- <stdio.h>
+    - Standard I/O package
+- <string.h>
+    - C string processing functions
+
+Macros 
+---
+
+- CPP contains a table of macros: symbol, value
+- Scans input looking for occurrences of symbol
+    - Replaces with defined value
+- Several predefined
+    - Some by standard, some by individual implementations
+- Standard predefined symbols
+
+<table>
+    <tr>
+        <th>Symbol</th>
+        <th>Value</th>
+    </tr>
+    <tr>
+        <td>__FILE__</td>
+        <td>name of the file being processed</td>
+    <tr>
+    <tr>
+        <td>__LINE__</td>
+        <td>line number of current line in __FILE__</td>
+    <tr>
+    <tr>
+        <td></td>
+        <td></td>
+    <tr>
+    <tr>
+        <td></td>
+        <td></td>
+    <tr>
+    <tr>
+        <td></td>
+        <td></td>
+    <tr>
+ </table>
+
+ - Several ways to define macros:
+ - Use #define directive
+```
+    #define name
+    #define name value
+```
+
+- Use -D command line option
+```
+    -Dname
+    -Dname=value
+```
+
+- name is a standard symbolic name
+    - Naming convention: use only uppercase alphabetics
+    - Optionally, can follow name with parameter list
+
+- value is a text string that can be anything
+
+```
+    #define LOOP        for(;;){
+    #define ENDLOOP     }
+```
+
+Input and Output
+===
+
+- Unix provides fundamental i/o services
+    - open/close, read/write
+
+- Processes do file operations using file descriptors (FDs)
+- Non-negative integers
+    - Originally, 0...19
+    - Modern versions of unix typically allows 0..255
+- Several ways to get them
+    - Open a file
+    - inherit when a process is created 
+    - Create a pipe or socket connection
+
+- Three FDs are pre-opened for most processes
+    - 0: stdin
+    - 1: stdout
+    - 2: stderr
+    - STDIN_FILENO, STDOUT_FILENO, STDERR_FILENO
+- Generally, inherited from parent process
+    - Login shell, etc
+
+Fundamental i/o routines
+---
+
+```
+ssize_t read(int fd, void *buffer, size_t length);
+ssize_t write(int fd, const void *buffer, size_t length);
+```
+
+- fd - file descriptor to read/write
+- buffer - array of bytes in memory
+- length - size of buffer
+
+- Byte-oriented i/o
+- Transfers up to length bytes between fd and buffer
+- Return value is transfer count
+    - -1 : error - no data transferred
+    - 0: no data transferred
+    - else : number of bytes transferred
+
+
