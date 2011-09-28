@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
+
 #include "allocate.h"
 #include "objects.h"
 #include "input.h"
@@ -26,11 +28,13 @@ int main(int argc, char *argv[]){
 	read_parts(argv[2], head_part, tail_part);
 
     printf("Head: %s\n", head_part->pid);
-    printf("Tail: %s\n", tail_part->pid);
+    //printf("Tail: %s\n", tail_part->pid);
 	
 	if(head_part->next_part == NULL){
 		printf("Head next is null\n");
 	}
+
+	print_all_parts(head_part);
 
     //printf("head.next: %s\n", head_part->next_part->pid);
 
