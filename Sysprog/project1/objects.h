@@ -11,9 +11,9 @@ struct Part {
 struct Customer{
 	char *name;
 	int credit;
-	char *uid;
+	char *cid;
+    struct Customer *next_customer;
 	struct Part **purchased_parts;
-    int purchased_parts_count;
 };
 
 #endif
