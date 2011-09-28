@@ -5,7 +5,7 @@ void insert_part(struct Part *new_part, struct Part *head){
     
 }
 
-void read_customers(const char* file_name, struct Part *head, struct Part *tail){
+void read_parts(const char* file_name, struct Part *head, struct Part *tail){
 	FILE *fp;
 	
 	fp = fopen(file_name, "r");
@@ -13,6 +13,7 @@ void read_customers(const char* file_name, struct Part *head, struct Part *tail)
 	char line[128];
 
 	int counter = 0;
+    int total_counter = 0;
 	
 	int current_index = 0;
 
@@ -35,24 +36,37 @@ void read_customers(const char* file_name, struct Part *head, struct Part *tail)
             // create a new temp struct and 
             
             current_part = allocate(sizeof(struct Part));
+            current_part->next_part = NULL;
             
             current_part->pid = allocate(strlen(line) - 1);
 
             strncpy(current_part->pid, line, strlen(line) - 1);
 
             //printf("PID: %s\n", current_part->pid);
-            
-            
-            // set the head pointer to the current part
-            *head = *current_part;
+            if(total_counter == 0){ 
+                *head = *current_part;
+                *tail = *current_part;
+                //printf("head: %s\n", head->pid);
+            } else {
+                tail->next_part = allocate(sizeof(struct Part));
 
-            printf("head: %s\n", head->pid);
+                *tail->next_part = *current_part;
+
+                //printf("tail: %s, next: %s\n", tail->pid, tail->next_part->pid);
+
+                *tail = *current_part;
+                //printf("new tail: %s\n", tail->pid);
+            }
+
             
             counter++;
 		} else if(counter == 1){
             // part qty
+            
 			counter++;
-        }		
+        }	
+
+        total_counter++;
 
 	}
 
